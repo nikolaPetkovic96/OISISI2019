@@ -18,7 +18,7 @@ public class StudentATM  extends AbstractTableModel {
 	public StudentATM() {
 		studenti=Baza.getInstance().getAllStudents();
 		//System.out.println(studenti.size());
-		 String[] kolone1= {"Indeks","Ime","Prezime","Godina studija","Status","Prosek"  };
+		 String[] kolone1= {"Indeks","Ime","Prezime","Datum rodjenja","Datum upisa","Godina studija","Status","Prosek"  };
 		kolone=kolone1;
 	}
 	@Override
@@ -48,20 +48,24 @@ public class StudentATM  extends AbstractTableModel {
 	      else if (col == 0) {
 	         temp = studenti.get(row).getIndex();
 	      }
-	      else if(col==3)
-	    	  temp=studenti.get(row).getTrenutna_godina();
 	      else if(col==5)
+	    	  temp=studenti.get(row).getTrenutna_godina();
+	      else if(col==7)
 	    	  temp=studenti.get(row).getProsek();
-	      else if(col==4) {
+	      else if(col==6) {
 	    	  temp=studenti.get(row).getTrenutni_status_string();
-	      }
+	      }else if(col==3)
+	    	  temp=studenti.get(row).getDatum_rodjenja();
+	      else if(col==4)
+			temp=studenti.get(row).getDatum_upisa();	
 		
+
 	      return temp;
 	}
 	
 	@Override
 	public String getColumnName(int column) {
-		String[] kolone= {"Indeks","Ime","Prezime","Godina studija","Status","Prosek"  };
+		//String[] kolone= {"Indeks","Ime","Prezime","Godina studija","Status","Prosek"  };
 		//String c=;
 		System.out.println(kolone[column]+column);
 		return kolone[column];
