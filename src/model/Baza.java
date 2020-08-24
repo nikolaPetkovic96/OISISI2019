@@ -26,9 +26,9 @@ public class Baza {
 		return instance;
 	}
 	public Baza() {
-		File f= new File("student");
-		System.out.print(f.getAbsolutePath());
-		System.out.print(f.getPath());
+		//File f= new File("student");
+		//System.out.print(f.getAbsolutePath());
+		//System.out.print(f.getPath());
 	}
 	
 	public  boolean addStudent(Student s) {

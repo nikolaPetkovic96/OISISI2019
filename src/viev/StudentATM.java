@@ -21,6 +21,42 @@ public class StudentATM  extends AbstractTableModel {
 		 String[] kolone1= {"Indeks","Ime","Prezime","Datum rodjenja","Datum upisa","Godina studija","Status","Prosek"  };
 		kolone=kolone1;
 	}
+	public StudentATM(ArrayList<String> param, ArrayList<String> vred) {
+		studenti=Baza.getInstance().getAllStudents();
+		for(int i=0;i<param.size();i++) {
+			if(param.get(i).equals("ime")) {
+				ArrayList<Student> za_brisanje=new ArrayList<Student>();
+				for(Student s:studenti) {
+					if(!s.getIme().equals(vred.get(i)))
+						za_brisanje.add(s);
+				}
+				for(Student s:za_brisanje)
+					studenti.remove(s);
+			}
+			else if(param.get(i).equals("prezime")) {
+				ArrayList<Student> za_brisanje=new ArrayList<Student>();
+				for(Student s:studenti) {
+					if(!s.getPrezime().equals(vred.get(i)))
+						za_brisanje.add(s);
+				}
+				for(Student s:za_brisanje)
+					studenti.remove(s);
+			
+			}
+			else if(param.get(i).equals("indeks")) {
+				ArrayList<Student> za_brisanje=new ArrayList<Student>();
+				for(Student s:studenti) {
+					if(!s.getIndex().equals(vred.get(i)))
+						za_brisanje.add(s);
+				}
+				for(Student s:za_brisanje)
+					studenti.remove(s);			
+			}
+		}
+		//System.out.println(studenti.size());
+		 String[] kolone1= {"Indeks","Ime","Prezime","Datum rodjenja","Datum upisa","Godina studija","Status","Prosek"  };
+		kolone=kolone1;
+	}
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub

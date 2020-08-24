@@ -74,5 +74,8 @@ public class FrameTabs extends JTabbedPane{
 		this.st.setAtm(new StudentATM());
 		st.repaint();		
 	}
-	
+	public void refresh(ArrayList<String> param, ArrayList<String> vred) {		//osvezi tabelu!!!! radi
+		this.st.setAtm(new StudentATM(param,vred));
+		st.repaint();		
+	}
 }
