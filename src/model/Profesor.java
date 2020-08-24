@@ -11,7 +11,7 @@ public class Profesor implements Serializable{
 	
 	private String Ime;
 	private String Prezime;
-	private Calendar datum_rodjenja;
+	private String datum_rodjenja;
 	private String adresa_kancelarije;
 	private String telefon;
 	private String email;
@@ -21,7 +21,7 @@ public class Profesor implements Serializable{
 	private List<Predmet> predmeti; //koje predaje
 	
 	
-	public Profesor(String ime, String prezime, Calendar datum_rodjenja, String adresa_kancelarije, String telefon,
+	public Profesor(String ime, String prezime, String datum_rodjenja, String adresa_kancelarije, String telefon,
 			String email, String br_licne_karte, String titula, String zvanje) {
 		super();
 		Ime = ime;
@@ -47,10 +47,10 @@ public class Profesor implements Serializable{
 	public void setPrezime(String prezime) {
 		Prezime = prezime;
 	}
-	public Calendar getDatum_rodjenja() {
+	public String getDatum_rodjenja() {
 		return datum_rodjenja;
 	}
-	public void setDatum_rodjenja(Calendar datum_rodjenja) {
+	public void setDatum_rodjenja(String datum_rodjenja) {
 		this.datum_rodjenja = datum_rodjenja;
 	}
 	public String getAdresa_kancelarije() {

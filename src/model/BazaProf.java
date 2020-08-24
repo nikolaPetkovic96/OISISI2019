@@ -44,11 +44,11 @@ public class BazaProf {
 		 return false;
 		
 	}
-	private ArrayList<Profesor> getAllProf() {
+	public ArrayList<Profesor> getAllProf() {
 		ArrayList<Profesor> profesori=new ArrayList<Profesor>();
 		FileInputStream fis;
 		try {
-			fis = new FileInputStream("nastavnik_path");
+			fis = new FileInputStream(nastavnik_path);
 	        ObjectInputStream ois = new ObjectInputStream(fis);		
 	        profesori=(ArrayList<Profesor>) ois.readObject();
 	        ois.close();
@@ -63,14 +63,12 @@ public class BazaProf {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println("Prondajeno studenata:"+profesori.size());
+        System.out.println("Prondajeno profesora:"+profesori.size());
         return profesori;
 	}
 	
-	public boolean updateStudent(Profesor stari, Profesor novi) {
-		ArrayList<Profesor> profesori=getAllProf();
-		
-		
+	public boolean updateProf(Profesor stari, Profesor novi) {
+		//ArrayList<Profesor> profesori=getAllProf();		
 		if(BazaProf.getInstance().removeProfesor(stari.getBr_licne_karte())) {
 			BazaProf.getInstance().addProf(novi);
 			return true;
@@ -112,7 +110,15 @@ public class BazaProf {
 	}
 	public boolean containsID(String br, Profesor stari) {
 		ArrayList<Profesor> st=getAllProf();
-		st.remove(stari);
+		for(Profesor p : st)		{
+			if(p.getBr_licne_karte().equals(stari.getBr_licne_karte()))
+			{
+				st.remove(p);
+				break;
+			}
+		}
+		//st.remove(stari);
+		//System.out.println(st.size());
 		for(Profesor s: st) {
 			if(s.getBr_licne_karte().equals(br))
 				return true;

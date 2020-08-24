@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,14 +12,14 @@ public class Predmet implements Serializable{
 	private String naziv;
 	private int semestar;		//letnji,zimski
 	private String godina;	//godina u kojoj se slusa
-	private List<Student> studenti;//studenti koji slusaju 
+	private ArrayList<String> studenti;//studenti koji slusaju 
 	public Predmet(String sifra, String naziv, int semestar, String godina) {
 		super();
 		this.sifra = sifra;
 		this.naziv = naziv;
 		this.semestar = semestar;
 		this.godina = godina;
-		studenti=Collections.emptyList();
+		studenti=new ArrayList<String>();
 	}
 	public String getSifra() {
 		return sifra;
@@ -44,10 +45,10 @@ public class Predmet implements Serializable{
 	public void setGodina(String godina) {
 		this.godina = godina;
 	}
-	public List<Student> getStudenti() {
+	public ArrayList<String> getStudenti() {
 		return studenti;
 	}
-	public void setStudenti(List<Student> studenti) {
+	public void setStudenti(ArrayList<String> studenti) {
 		this.studenti = studenti;
 	}
 }

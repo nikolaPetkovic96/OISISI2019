@@ -5,6 +5,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import model.Baza;
+import model.BazaPred;
+import model.Predmet;
 
 public class MainClass {
 
@@ -18,11 +20,13 @@ public class MainClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		//Predmet p=new );
+		//p.get
+		BazaPred.getInstance().addPred(new Predmet("0001","predmet1",4,"letnji"));
+
 		JFrame mainFrame = Frame.getInstance();
 		mainFrame.setVisible(true);
-		Baza b=new Baza();
-
+		//Baza b=new Baza();
 	}
 
 }

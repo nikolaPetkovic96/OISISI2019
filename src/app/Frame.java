@@ -55,6 +55,19 @@ public class Frame extends JFrame{
 		 tb=new FrameToolBar(this);
 		FrameStatusBar status=new FrameStatusBar();
 		 tabs=new FrameTabs();
+		 tabs.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent arg0) {
+				if(tabs.getSelectedIndex()==0) {
+					tabs.refresh();
+				}else if(tabs.getSelectedIndex()==1) {
+					tabs.refreshProf();
+				}else if(tabs.getSelectedIndex()==2) {
+					
+				}
+				
+			}});
 		this.setJMenuBar(menu);
 		this.add(tb,BorderLayout.NORTH);
 		this.add(status,BorderLayout.SOUTH);

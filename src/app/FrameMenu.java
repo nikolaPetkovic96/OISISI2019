@@ -16,6 +16,7 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 
 import dialog.NewStudentDialog;
+import dialog.ProfesorDialog;
 import listeners.DeleteListener;
 import listeners.EditListener;
 import listeners.MyWindowListener;
@@ -79,6 +80,8 @@ public class FrameMenu extends JMenuBar{
 				}	
 				else if(Frame.getInstance().getTabs().getSelectedIndex()	==1) {
 					//System.out.println("Prof");
+					ProfesorDialog pd=new ProfesorDialog(parent);
+					pd.setVisible(true);
 				}	
 				else if(Frame.getInstance().getTabs().getSelectedIndex()	==2) {
 					//System.out.println("Pred");}	

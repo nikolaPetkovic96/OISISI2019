@@ -93,20 +93,17 @@ public class StudentATM  extends AbstractTableModel {
 	      }else if(col==3)
 	    	  temp=studenti.get(row).getDatum_rodjenja();
 	      else if(col==4)
-			temp=studenti.get(row).getDatum_upisa();	
+			temp=studenti.get(row).getDatum_upisa();
 		
-
-	      return temp;
+		return temp;
 	}
 	
 	@Override
 	public String getColumnName(int column) {
 		//String[] kolone= {"Indeks","Ime","Prezime","Godina studija","Status","Prosek"  };
 		//String c=;
-		System.out.println(kolone[column]+column);
+		//System.out.println(kolone[column]+column);
 		return kolone[column];
-
-
 	}
 	
 }

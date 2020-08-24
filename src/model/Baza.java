@@ -76,6 +76,7 @@ public class Baza {
 			e.printStackTrace();
 		}
         System.out.println("Prondajeno studenata:"+studenti.size());
+        
         return studenti;		
 	}
 	public boolean updateStudent(Student stari, Student novi) {
@@ -129,7 +130,12 @@ public class Baza {
 	}
 	public boolean containsID(String index, Student stari) {
 		ArrayList<Student> st=getAllStudents();
-		st.remove(stari);
+		for(Student s : st) {
+			if(s.getIndex().equals(stari.getIndex())) {
+				st.remove(s);
+				break;
+			}//System.out.println(st.size());
+		}
 		for(Student s: st) {
 			if(s.getIndex().equals(index))
 				return true;

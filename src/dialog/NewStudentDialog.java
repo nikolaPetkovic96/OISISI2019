@@ -57,7 +57,7 @@ public class NewStudentDialog extends JDialog{
 		bg.add(s);
 		bg.add(b);		
 		
-		JTextField ime=new JTextField(40); ime.setMaximumSize(new Dimension(1000,1000)); ime.addKeyListener(new ImePrezimeListener());
+		JTextField ime=new JTextField(40); ime.addKeyListener(new ImePrezimeListener()); //ime.setMaximumSize(new Dimension(1000,1000)); 
 		JTextField prezime=new JTextField(40); prezime.addKeyListener(new ImePrezimeListener());
 		JTextField datum=new JTextField(30); datum.addFocusListener(new DatumListener());
 		JTextField adresa=new JTextField(30); adresa.addFocusListener(new AdresaListener());
@@ -253,15 +253,13 @@ public class NewStudentDialog extends JDialog{
 										budzet,
 										prosekBroj									
 										)	;
-				System.out.print(novi.toString());
+				//System.out.print(novi.toString());
 				if(Baza.getInstance().containsID(novi.getIndex(), stari)) {
 					JOptionPane.showMessageDialog(null, "U bazi postoji drugi student sa unetim indeksom");
 				}
 				else if(Baza.getInstance().updateStudent(stari,novi)) {
 					app.Frame.getInstance().getTabs().refresh();
 					JOptionPane.showMessageDialog(null, "uspesna izmena studenta");
-					
-
 					dispose();
 				}
 				else {
